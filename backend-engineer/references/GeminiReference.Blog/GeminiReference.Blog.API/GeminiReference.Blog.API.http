@@ -1,0 +1,32 @@
+@GeminiReference.API_HostAddress = http://localhost:5165
+@PostId = 6f33d4f1-615c-4a3a-96e4-4c6e9f948f21
+
+### Paginate Posts
+GET {{GeminiReference.API_HostAddress}}/posts?Page=1&Limit=10&OrderBy.Field=Id&OrderBy.Type=DESC
+Accept: application/json
+
+### Paginate Posts with Filters
+GET {{GeminiReference.API_HostAddress}}/posts?Page=1&Limit=10&Title__EQ=My%20First%20Post
+Accept: application/json
+
+### Create Post
+POST {{GeminiReference.API_HostAddress}}/posts
+Content-Type: application/json
+
+{
+  "id": "{{PostId}}",
+  "title": "My First Post",
+  "contents": "This is the content of my first post"
+}
+
+### Update Post (Partial)
+PATCH {{GeminiReference.API_HostAddress}}/posts/{{PostId}}
+Content-Type: application/json
+
+{
+  "title": "My Updated Post Title"
+}
+
+### Delete Post
+DELETE {{GeminiReference.API_HostAddress}}/posts/{{PostId}}
+Accept: application/json
