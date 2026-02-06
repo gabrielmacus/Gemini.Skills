@@ -1,14 +1,14 @@
 using FluentValidation;
-using GeminiReference.Blog.API.Localization;
 using GeminiReference.Blog.Modules.Posts.Domain.ValueObjects;
 using Microsoft.Extensions.Localization;
+using Neuraltech.SharedKernel.Infraestructure.Localization;
 using Neuraltech.SharedKernel.Infraestructure.Validation;
 
 namespace GeminiReference.Blog.API.Resources.v1.Posts.Actions.CreatePost
 {
     public class CreatePostValidator : AbstractValidator<CreatePostRequestDTO>
     {
-        public CreatePostValidator(IStringLocalizer<SharedResource> localizer)
+        public CreatePostValidator(IStringLocalizer<SharedLocalization> localizer)
         {
             RuleFor(x => x.Id)
                 .NotEmpty()

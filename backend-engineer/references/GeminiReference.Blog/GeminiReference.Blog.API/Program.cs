@@ -64,6 +64,9 @@ app.UseRequestTimeouts();
 
 app.UseOutputCache();
 
+app.UseExceptionHandler();
+
+
 //app.MapDefaultEndpoints();
 #region Health check endpoints
 app.MapHealthCheckEndpoints();

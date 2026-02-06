@@ -17,3 +17,4 @@ description:
 - Never put infraestructure code in Domain or Application layer, with the exception of wolverine event handler interface, which is used in application layer. Always put it in Infrastructure layer. The direction of imports must be: Domain -> Application -> Infrastructure.
 - Don't generate documentation for the code. Only generate code.
 - Don't generate tests.
+- Rate limiting, CORS, Auth, etc, won't be implemented in this layer. They will be implemented via API Gateway.

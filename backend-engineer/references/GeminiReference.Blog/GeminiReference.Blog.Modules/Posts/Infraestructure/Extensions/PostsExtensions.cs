@@ -20,8 +20,14 @@ namespace GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions
             AddUseCases(builder.Services);
             AddServices(builder.Services);
             AddWolverineExtensions(builder.Services);
+            AddExceptionHandlers(builder.Services);
 
             return builder;
+        }
+
+        private static void AddExceptionHandlers(IServiceCollection services)
+        {
+            //services.AddExceptionHandler()
         }
 
         private static void AddWolverineExtensions(IServiceCollection services)
@@ -41,6 +47,7 @@ namespace GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions
             services.AddScoped<UpdatePostUseCase>();
             services.AddScoped<DeletePostUseCase>();
             services.AddScoped<PaginatePostsUseCase>();
+
         }
     }
 }

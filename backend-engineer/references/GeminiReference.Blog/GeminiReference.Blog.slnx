@@ -1,10 +1,10 @@
 <Solution>
   <Folder Name="/SharedKernel/">
-    <Project Path="../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Application/Neuraltech.SharedKernel.Application.csproj" />
-    <Project Path="../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Domain/Neuraltech.SharedKernel.Domain.csproj" />
-    <Project Path="../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Infraestructure/Neuraltech.SharedKernel.Infraestructure.csproj" />
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Application/Neuraltech.SharedKernel.Application.csproj" />
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Domain/Neuraltech.SharedKernel.Domain.csproj" />
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Infraestructure/Neuraltech.SharedKernel.Infraestructure.csproj" />
   </Folder>
-  <Project Path="../Gemini.Skills/backend-engineer/references/GeminiReference.Integration/GeminiReference.Integration.csproj" />
+  <Project Path="../GeminiReference.Integration/GeminiReference.Integration.csproj" />
   <Project Path="GeminiReference.Blog.API/GeminiReference.Blog.API.csproj" />
   <Project Path="GeminiReference.Blog.AppHost/GeminiReference.Blog.AppHost.csproj" />
   <Project Path="GeminiReference.Blog.Migrations/GeminiReference.Blog.Migrations.csproj" />

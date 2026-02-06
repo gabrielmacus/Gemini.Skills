@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Neuraltech.SharedKernel\Neuraltech.SharedKernel.Infraestructure\Neuraltech.SharedKernel.Infraestructure.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Neuraltech.SharedKernel\Neuraltech.SharedKernel.Infraestructure\Neuraltech.SharedKernel.Infraestructure.csproj" />
     <ProjectReference Include="..\GeminiReference.Blog.Modules\GeminiReference.Blog.Modules.csproj" />
   </ItemGroup>
 
