@@ -38,6 +38,9 @@ builder.UseLocalization(["es"], "es");
 builder.UseWolverineFx<BlogDbContext>();
 #endregion
 
+#region Caching
+builder.UseFusionCache();
+#endregion
 
 builder.Services.AddControllers();
 
