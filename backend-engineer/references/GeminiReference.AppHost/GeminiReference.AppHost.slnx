@@ -1,0 +1,19 @@
+<Solution>
+  <Folder Name="/services/">
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Application/Neuraltech.SharedKernel.Application.csproj" />
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Domain/Neuraltech.SharedKernel.Domain.csproj" />
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Infraestructure/Neuraltech.SharedKernel.Infraestructure.csproj" />
+  </Folder>
+  <Folder Name="/services/backoffice/">
+    <Project Path="../GeminiReference.Backoffice/GeminiReference.Backoffice.API/GeminiReference.Backoffice.API.csproj" />
+    <Project Path="../GeminiReference.Backoffice/GeminiReference.Backoffice.Migrations/GeminiReference.Backoffice.Migrations.csproj" />
+    <Project Path="../GeminiReference.Backoffice/GeminiReference.Backoffice.Modules/GeminiReference.Backoffice.Modules.csproj" />
+  </Folder>
+  <Folder Name="/services/blog/">
+    <Project Path="../GeminiReference.Blog/GeminiReference.Blog.API/GeminiReference.Blog.API.csproj" />
+    <Project Path="../GeminiReference.Blog/GeminiReference.Blog.Migrations/GeminiReference.Blog.Migrations.csproj" />
+  </Folder>
+  <Project Path="GeminiReference.AppHost.ServiceDefaults/GeminiReference.AppHost.ServiceDefaults.csproj" Id="1bc96253-55d2-4943-91eb-4ff0547b1fbf" />
+  <Project Path="GeminiReference.Blog.AppHost/GeminiReference.Blog.AppHost.csproj" />
+  <Project Path="GeminiReference.Gateway/GeminiReference.Gateway.csproj" Id="6f02cb3d-2cd2-4902-87ab-ce60c381a3f0" />
+</Solution>

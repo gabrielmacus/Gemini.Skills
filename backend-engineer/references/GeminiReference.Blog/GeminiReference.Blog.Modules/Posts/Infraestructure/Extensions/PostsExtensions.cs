@@ -1,28 +1,29 @@
-using GeminiReference.Blog.Modules.Posts.Application.UseCases.CreatePost;
-using GeminiReference.Blog.Modules.Posts.Application.UseCases.DeletePost;
 using GeminiReference.Blog.Modules.Posts.Application.UseCases.PaginatePosts;
-using GeminiReference.Blog.Modules.Posts.Application.UseCases.UpdatePost;
 using GeminiReference.Blog.Modules.Posts.Domain.Contracts;
 using GeminiReference.Blog.Modules.Posts.Domain.Services;
 using GeminiReference.Blog.Modules.Posts.Infraestructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Wolverine;
+using Neuraltech.SharedKernel.Infraestructure.Extensions;
+using ZiggyCreatures.Caching.Fusion;
 
 namespace GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions
 {
     public static class PostsExtensions
     {
-        public static IHostApplicationBuilder UsePostsModule(
-            this IHostApplicationBuilder builder
-        )
+        public static IHostApplicationBuilder UsePostsModule(this IHostApplicationBuilder builder)
         {
             AddUseCases(builder.Services);
             AddServices(builder.Services);
-            AddWolverineExtensions(builder.Services);
             AddExceptionHandlers(builder.Services);
+            AddCache(builder);
 
             return builder;
+        }
+
+        private static void AddCache(IHostApplicationBuilder builder)
+        {
+            builder.UseFusionCache("Blog.Posts");
         }
 
         private static void AddExceptionHandlers(IServiceCollection services)
@@ -30,24 +31,17 @@ namespace GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions
             //services.AddExceptionHandler()
         }
 
-        private static void AddWolverineExtensions(IServiceCollection services)
-        {
-            services.AddWolverineExtension<PostsWolverineExtension>();
-        }
-
         private static void AddServices(IServiceCollection services)
         {
-            services.AddScoped<IPostRepository, PostRepository>();
+            services.AddKeyedScoped<IPostRepository, PostRepository>("uncached");
+            services.AddScoped<IPostRepository, PostCachedRepository>();
+
             services.AddScoped<PostFinder>();
         }
 
         private static void AddUseCases(IServiceCollection services)
         {
-            services.AddScoped<CreatePostUseCase>();
-            services.AddScoped<UpdatePostUseCase>();
-            services.AddScoped<DeletePostUseCase>();
             services.AddScoped<PaginatePostsUseCase>();
-
         }
     }
 }

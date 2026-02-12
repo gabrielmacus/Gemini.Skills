@@ -1,0 +1,11 @@
+<Solution>
+  <Folder Name="/SharedKernel/">
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Application/Neuraltech.SharedKernel.Application.csproj" />
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Domain/Neuraltech.SharedKernel.Domain.csproj" />
+    <Project Path="../../../../Neuraltech.SharedKernel/Neuraltech.SharedKernel.Infraestructure/Neuraltech.SharedKernel.Infraestructure.csproj" />
+  </Folder>
+  <Project Path="../GeminiReference.Integration/GeminiReference.Integration.csproj" />
+  <Project Path="GeminiReference.Backoffice.API/GeminiReference.Backoffice.API.csproj" />
+  <Project Path="GeminiReference.Backoffice.Migrations/GeminiReference.Backoffice.Migrations.csproj" />
+  <Project Path="GeminiReference.Backoffice.Modules/GeminiReference.Backoffice.Modules.csproj" />
+</Solution>

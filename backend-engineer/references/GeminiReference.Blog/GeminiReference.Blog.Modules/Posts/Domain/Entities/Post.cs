@@ -1,46 +1,32 @@
-using GeminiReference.Blog.Modules.Posts.Domain.Events;
+using GeminiReference.Blog.Modules.Posts.Domain.Snapshots;
 using GeminiReference.Blog.Modules.Posts.Domain.ValueObjects;
 using Neuraltech.SharedKernel.Domain.Base;
+using Neuraltech.SharedKernel.Domain.Contracts;
 
 namespace GeminiReference.Blog.Modules.Posts.Domain.Entities
 {
-    public class Post : AggregateRoot
+    public class Post : AggregateRoot, ISnapshotable<Post, PostSnapshot>
     {
         public PostTitle Title { get; private set; }
         public PostContents Contents { get; private set; }
 
-        public Post(Guid id, string title, string contents) : base(new PostId(id))
+        public Post(Guid id, string title, string contents)
+            : base(new PostId(id))
         {
             Id = new PostId(id);
             Title = new PostTitle(title);
             Contents = new PostContents(contents);
         }
 
-        public static Post Create(Guid id, string title, string contents)
-        {
-            var post = new Post(id, title, contents);
-            
-            post.RecordDomainEvent(new PostCreatedEvent
+        public PostSnapshot ToSnapshot() =>
+            new()
             {
-                Contents = contents,
-                PostId = id,
-                Title = title
-            });
+                Id = Id.Value,
+                Title = Title.Value,
+                Contents = Contents.Value,
+            };
 
-            return post;
-        }
-
-        public void Update(string title, string contents)
-        {
-            Title = new PostTitle(title);
-            Contents = new PostContents(contents);
-
-            RecordDomainEvent(new PostUpdatedEvent
-            {
-                PostId = Id.Value,
-                Title = title,
-                Contents = contents
-            });
-        }
+        public static Post FromSnapshot(PostSnapshot snapshot) =>
+            new Post(snapshot.Id, snapshot.Title, snapshot.Contents);
     }
 }

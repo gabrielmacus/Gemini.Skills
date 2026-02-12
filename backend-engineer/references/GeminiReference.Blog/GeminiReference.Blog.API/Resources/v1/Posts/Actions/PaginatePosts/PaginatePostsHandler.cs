@@ -13,17 +13,16 @@ namespace GeminiReference.Blog.API.Resources.v1.Posts.Actions.PaginatePosts
         public PaginatePostsHandler(PaginatePostsUseCase useCase)
             : base(useCase) { }
 
-        protected override PostCriteria MapCriteria(PaginatePostsRequestDTO request)
+
+        protected override PostCriteria MapCriteria(PaginatePostsRequestDTO request, PostCriteria baseCriteria)
         {
-            var criteria = base.MapCriteria(request);
+            baseCriteria.AddOrder(request.OrderBy.Field.ToString(), request.OrderBy.Type);
 
-            criteria.AddOrder(request.OrderBy.Field.ToString(), request.OrderBy.Type);
-
-            criteria
+            baseCriteria
                 .WithTitle(request.Title__EQ)
                 .WithContentsContaining(request.Contents__CONTAINS);
 
-            return criteria;
+            return baseCriteria;
         }
 
         protected override PaginatePostsResponseDTO MapResponseEntity(Post entity)
@@ -41,5 +40,6 @@ namespace GeminiReference.Blog.API.Resources.v1.Posts.Actions.PaginatePosts
         {
             return base.Paginate(request);
         }
+
     }
 }

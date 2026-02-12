@@ -5,7 +5,7 @@ using Neuraltech.SharedKernel.Infraestructure.Extensions;
 var builder = Host.CreateApplicationBuilder(args);
 
 builder.UsePostgresDb<BlogDbContext>(
-    "postgres",
+    "blog-db",
     x => x.MigrationsAssembly("GeminiReference.Blog.Migrations")
 );
 

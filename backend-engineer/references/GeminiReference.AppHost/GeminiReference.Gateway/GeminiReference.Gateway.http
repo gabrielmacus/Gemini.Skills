@@ -1,0 +1,6 @@
+@GeminiReference.Gateway_HostAddress = http://localhost:5058
+
+GET {{GeminiReference.Gateway_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

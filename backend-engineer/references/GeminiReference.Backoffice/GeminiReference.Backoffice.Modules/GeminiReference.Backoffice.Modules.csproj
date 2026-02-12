@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\..\..\Neuraltech.SharedKernel\Neuraltech.SharedKernel.Infraestructure\Neuraltech.SharedKernel.Infraestructure.csproj" />
+    <ProjectReference Include="..\..\GeminiReference.Integration\GeminiReference.Integration.csproj" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+</Project>

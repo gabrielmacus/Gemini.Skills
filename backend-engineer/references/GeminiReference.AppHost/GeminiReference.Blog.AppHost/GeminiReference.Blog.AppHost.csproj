@@ -1,0 +1,27 @@
+﻿<Project Sdk="Aspire.AppHost.Sdk/13.1.0">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <UserSecretsId>186e79f6-7e5d-46b3-a4dd-e1b635337d49</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Aspire.Hosting.Docker" Version="13.1.0-preview.1.25616.3" />
+    <PackageReference Include="Aspire.Hosting.Kafka" Version="13.1.0" />
+    <PackageReference Include="Aspire.Hosting.PostgreSQL" Version="13.1.0" />
+    <PackageReference Include="Aspire.Hosting.Redis" Version="13.1.0" />
+    <PackageReference Include="Aspire.Hosting.Yarp" Version="13.1.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\GeminiReference.Backoffice\GeminiReference.Backoffice.Migrations\GeminiReference.Backoffice.Migrations.csproj" />
+    <ProjectReference Include="..\..\GeminiReference.Blog\GeminiReference.Blog.API\GeminiReference.Blog.API.csproj" />
+    <ProjectReference Include="..\..\GeminiReference.Blog\GeminiReference.Blog.Migrations\GeminiReference.Blog.Migrations.csproj" />
+    <ProjectReference Include="..\GeminiReference.Gateway\GeminiReference.Gateway.csproj" />
+    <ProjectReference Include="..\..\GeminiReference.Backoffice\GeminiReference.Backoffice.API\GeminiReference.Backoffice.API.csproj" />
+  </ItemGroup>
+
+</Project>

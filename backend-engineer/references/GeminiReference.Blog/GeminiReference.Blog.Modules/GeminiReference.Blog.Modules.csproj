@@ -7,6 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Posts\Domain\Events\**" />
+    <EmbeddedResource Remove="Posts\Domain\Events\**" />
+    <None Remove="Posts\Domain\Events\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\..\..\..\Neuraltech.SharedKernel\Neuraltech.SharedKernel.Infraestructure\Neuraltech.SharedKernel.Infraestructure.csproj" />
     <ProjectReference Include="..\..\GeminiReference.Integration\GeminiReference.Integration.csproj" />
   </ItemGroup>

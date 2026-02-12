@@ -1,9 +1,6 @@
 using GeminiReference.Blog.Modules.Posts.Domain.Contracts;
 using GeminiReference.Blog.Modules.Posts.Domain.Entities;
 using GeminiReference.Blog.Modules.Posts.Domain.Exceptions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace GeminiReference.Blog.Modules.Posts.Domain.Services
 {

@@ -1,4 +1,3 @@
-using GeminiReference.Blog.API.Resources.v1.Posts.Actions.CreatePost;
 using GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions;
 using GeminiReference.Blog.Modules.SharedKernel.Infraestructure.Services;
 using Neuraltech.SharedKernel.Infraestructure.Extensions;
@@ -18,28 +17,22 @@ builder.UseDefaultExtensions();
 #region Health Checks
 builder
     .UseHealthChecks()
-    .AddNpgSql(builder.Configuration.GetConnectionString("postgres")!)
+    .AddNpgSql(builder.Configuration.GetConnectionString("blog-db")!)
+    .AddRedis(builder.Configuration)
     .AddKafka(builder.Configuration);
 #endregion
 
 #region Persistence
-builder.UsePostgresDb<BlogDbContext>();
+builder.UsePostgresDb<BlogDbContext>("blog-db");
 #endregion
 
-#region Validation
-builder.UseFluentValidation<CreatePostValidator>();
-#endregion
 
 #region Localization
 builder.UseLocalization(["es"], "es");
 #endregion
 
 #region Events
-builder.UseWolverineFx<BlogDbContext>();
-#endregion
-
-#region Caching
-builder.UseFusionCache();
+builder.UseWolverineFx<BlogDbContext>("blog-db");
 #endregion
 
 builder.Services.AddControllers();
@@ -57,8 +50,6 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
 app.MapControllers();
@@ -68,7 +59,6 @@ app.UseRequestTimeouts();
 app.UseOutputCache();
 
 app.UseExceptionHandler();
-
 
 //app.MapDefaultEndpoints();
 #region Health check endpoints

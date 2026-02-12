@@ -1,15 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Text;
+using Neuraltech.SharedKernel.Domain.Exceptions;
 
 namespace GeminiReference.Blog.Modules.Posts.Domain.Exceptions
 {
-    public class PostNotFoundException : Exception
+    public class PostNotFoundException : DomainException
     {
         private PostNotFoundException(string message)
-            : base(message)
-        {
-        }
+            : base(message) { }
 
         public static PostNotFoundException FromId(Guid id)
         {

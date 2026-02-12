@@ -6,7 +6,6 @@
   </Folder>
   <Project Path="../GeminiReference.Integration/GeminiReference.Integration.csproj" />
   <Project Path="GeminiReference.Blog.API/GeminiReference.Blog.API.csproj" />
-  <Project Path="GeminiReference.Blog.AppHost/GeminiReference.Blog.AppHost.csproj" />
   <Project Path="GeminiReference.Blog.Migrations/GeminiReference.Blog.Migrations.csproj" />
   <Project Path="GeminiReference.Blog.Modules/GeminiReference.Blog.Modules.csproj" />
 </Solution>

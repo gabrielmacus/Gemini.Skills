@@ -1,6 +1,7 @@
 using GeminiReference.Blog.Modules.Posts.Domain.Contracts;
 using GeminiReference.Blog.Modules.Posts.Domain.Criteria;
 using GeminiReference.Blog.Modules.Posts.Domain.Entities;
+using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Neuraltech.SharedKernel.Application.UseCases.Paginate;
 
