@@ -9,7 +9,7 @@ using ZiggyCreatures.Caching.Fusion;
 namespace GeminiReference.Blog.Modules.Posts.Infraestructure.Services
 {
     public class PostCachedRepository
-        : BaseCachedRepository<Post, PostCriteria, PostSnapshot>,
+        : BaseCachedRepository<Post, PostCriteria, PostPrimitives>,
             IPostRepository
     {
         public PostCachedRepository(

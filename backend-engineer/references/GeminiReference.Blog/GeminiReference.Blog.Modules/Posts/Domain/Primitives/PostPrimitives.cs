@@ -1,6 +1,6 @@
 namespace GeminiReference.Blog.Modules.Posts.Domain.Snapshots
 {
-    public record PostSnapshot
+    public record PostPrimitives
     {
         public required Guid Id { get; init; }
         public required string Title { get; init; }

@@ -10,7 +10,6 @@ namespace GeminiReference.Backoffice.Modules.Posts.Application.UseCases.DeletePo
         ILogger<DeletePostUseCase> logger,
         IPostRepository findByIdRepository,
         IPostRepository repository,
-        IEventBus eventBus,
         IUnitOfWork unitOfWork
-    ) : DeleteUseCase<Post>(logger, findByIdRepository, repository, eventBus, unitOfWork) { }
+    ) : DeleteUseCase<Post>(logger, findByIdRepository, repository, unitOfWork) { }
 }

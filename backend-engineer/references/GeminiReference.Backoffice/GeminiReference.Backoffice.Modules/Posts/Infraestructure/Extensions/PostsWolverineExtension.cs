@@ -83,8 +83,8 @@ namespace GeminiReference.Backoffice.Modules.Posts.Infraestructure.Extensions
         private void ConfigurePostSnapshot(WolverineOptions options)
         {
             options
-                .PublishMessage<PostPublicSnapshot>()
-                .ToKafkaTopic(PostPublicSnapshot.PublicMessageName)
+                .PublishMessage<PostSnapshot>()
+                .ToKafkaTopic(PostSnapshot.PublicSnapshotName)
                 .TopicCreation(
                     async (client, topic) =>
                     {
@@ -95,13 +95,11 @@ namespace GeminiReference.Backoffice.Modules.Posts.Infraestructure.Extensions
                             new Dictionary<string, string>
                             {
                                 { "cleanup.policy", "compact" },
-                                { "segment.ms", TimeSpan.FromDays(7).TotalMicroseconds.ToString() }
+                                { "segment.ms", TimeSpan.FromHours(1).TotalMicroseconds.ToString() }
                             }
                         );
                     }
-                )
-                
-                ;
+                );
         }
 
         public void Configure(WolverineOptions options)

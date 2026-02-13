@@ -10,9 +10,8 @@ namespace GeminiReference.Backoffice.Modules.Posts.Application.UseCases.CreatePo
     public class CreatePostUseCase(
         ILogger<CreatePostUseCase> logger,
         IPostRepository repository,
-        IEventBus eventBus,
         IUnitOfWork unitOfWork
-    ) : CreateUseCase<CreatePostDTO, Post>(logger, repository, eventBus, unitOfWork)
+    ) : CreateUseCase<CreatePostDTO, Post>(logger, repository, unitOfWork)
     {
         protected override ValueTask<Post> ProcessRequest(CreatePostDTO request)
         {

@@ -5,7 +5,7 @@ using Neuraltech.SharedKernel.Domain.Contracts;
 
 namespace GeminiReference.Blog.Modules.Posts.Domain.Entities
 {
-    public class Post : AggregateRoot, ISnapshotable<Post, PostSnapshot>
+    public class Post : AggregateRoot, IPrimitiveSerializable<Post, PostPrimitives>
     {
         public PostTitle Title { get; private set; }
         public PostContents Contents { get; private set; }
@@ -18,7 +18,7 @@ namespace GeminiReference.Blog.Modules.Posts.Domain.Entities
             Contents = new PostContents(contents);
         }
 
-        public PostSnapshot ToSnapshot() =>
+        public PostPrimitives ToPrimitives() =>
             new()
             {
                 Id = Id.Value,
@@ -26,7 +26,7 @@ namespace GeminiReference.Blog.Modules.Posts.Domain.Entities
                 Contents = Contents.Value,
             };
 
-        public static Post FromSnapshot(PostSnapshot snapshot) =>
-            new Post(snapshot.Id, snapshot.Title, snapshot.Contents);
+        public static Post FromPrimitives(PostPrimitives primitives) =>
+            new(primitives.Id, primitives.Title, primitives.Contents);
     }
 }

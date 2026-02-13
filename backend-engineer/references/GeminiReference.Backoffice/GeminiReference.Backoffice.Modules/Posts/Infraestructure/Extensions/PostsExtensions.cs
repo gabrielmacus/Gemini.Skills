@@ -1,10 +1,10 @@
+using GeminiReference.Backoffice.Modules.Posts.Application.IntegrationEventPublishers.PublishPostCreatedIntegrationEvent;
+using GeminiReference.Backoffice.Modules.Posts.Application.IntegrationEventPublishers.PublishPostDeletedIntegrationEvent;
+using GeminiReference.Backoffice.Modules.Posts.Application.IntegrationEventPublishers.PublishPostUpdatedIntegrationEvent;
+using GeminiReference.Backoffice.Modules.Posts.Application.SnapshotPublishers.PublishPostSnapshot;
 using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.CreatePost;
 using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.DeletePost;
 using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.PaginatePosts;
-using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.PublishPostCreatedIntegrationEvent;
-using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.PublishPostDeletedIntegrationEvent;
-using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.PublishPostSnapshot;
-using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.PublishPostUpdatedIntegrationEvent;
 using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.UpdatePost;
 using GeminiReference.Backoffice.Modules.Posts.Domain.Contracts;
 using GeminiReference.Backoffice.Modules.Posts.Infraestructure.Services;
@@ -60,7 +60,7 @@ namespace GeminiReference.Backoffice.Modules.Posts.Infraestructure.Extensions
             services.AddScoped<PublishPostUpdatedIntegrationEventUseCase>();
             services.AddScoped<PublishPostDeletedIntegrationEventUseCase>();
 
-            services.AddScoped<PublishPostSnapshotUseCase>();
+            services.AddScoped<PostSnapshotPublisher>();
         }
     }
 }

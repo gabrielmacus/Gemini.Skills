@@ -1,7 +1,7 @@
 using GeminiReference.Backoffice.Modules.Posts.Domain.Contracts;
 using GeminiReference.Backoffice.Modules.Posts.Domain.Criteria;
 using GeminiReference.Backoffice.Modules.Posts.Domain.Entities;
-using GeminiReference.Backoffice.Modules.Posts.Domain.Snapshots;
+using GeminiReference.Backoffice.Modules.Posts.Domain.Primitives;
 using Microsoft.Extensions.DependencyInjection;
 using Neuraltech.SharedKernel.Infraestructure.Persistence.Cached;
 using ZiggyCreatures.Caching.Fusion;
@@ -9,7 +9,7 @@ using ZiggyCreatures.Caching.Fusion;
 namespace GeminiReference.Backoffice.Modules.Posts.Infraestructure.Services
 {
     public class PostCachedRepository
-        : BaseCachedRepository<Post, PostCriteria, PostSnapshot>,
+        : BaseCachedRepository<Post, PostCriteria, PostPrimitives>,
             IPostRepository
     {
         public PostCachedRepository(

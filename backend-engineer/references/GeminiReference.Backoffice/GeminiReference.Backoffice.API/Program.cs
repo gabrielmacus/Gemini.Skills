@@ -1,13 +1,9 @@
 using GeminiReference.Backoffice.API.Resources.v1.Posts.Actions.CreatePost;
 using GeminiReference.Backoffice.Modules.Posts.Infraestructure.Extensions;
 using GeminiReference.Backoffice.Modules.SharedKernel.Infraestructure.Services;
-using JasperFx.Resources;
 using Neuraltech.SharedKernel.Infraestructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
-
-builder.Host.UseResourceSetupOnStartup();
-
 //builder.AddServiceDefaults();
 
 #region Modules

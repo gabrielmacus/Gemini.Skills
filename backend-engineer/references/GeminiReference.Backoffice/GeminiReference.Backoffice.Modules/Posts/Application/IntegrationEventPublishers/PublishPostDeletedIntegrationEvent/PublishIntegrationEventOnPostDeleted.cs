@@ -1,7 +1,7 @@
 using GeminiReference.Backoffice.Modules.Posts.Domain.Events;
 using Wolverine;
 
-namespace GeminiReference.Backoffice.Modules.Posts.Application.UseCases.PublishPostDeletedIntegrationEvent
+namespace GeminiReference.Backoffice.Modules.Posts.Application.IntegrationEventPublishers.PublishPostDeletedIntegrationEvent
 {
     public class PublishIntegrationEventOnPostDeleted : IWolverineHandler
     {

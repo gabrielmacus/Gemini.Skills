@@ -11,14 +11,12 @@ namespace GeminiReference.Backoffice.Modules.Posts.Application.UseCases.UpdatePo
         ILogger<UpdatePostUseCase> logger,
         IPostRepository findByIdRepository,
         IPostRepository repository,
-        IEventBus eventBus,
         IUnitOfWork unitOfWork
     )
         : UpdateUseCase<UpdatePostDTO, Post>(
             logger,
             findByIdRepository,
             repository,
-            eventBus,
             unitOfWork
         )
     {

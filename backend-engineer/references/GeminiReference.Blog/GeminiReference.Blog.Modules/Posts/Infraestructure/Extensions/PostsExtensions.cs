@@ -5,6 +5,7 @@ using GeminiReference.Blog.Modules.Posts.Infraestructure.Services;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Neuraltech.SharedKernel.Infraestructure.Extensions;
+using Wolverine;
 using ZiggyCreatures.Caching.Fusion;
 
 namespace GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions
@@ -17,6 +18,7 @@ namespace GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions
             AddServices(builder.Services);
             AddExceptionHandlers(builder.Services);
             AddCache(builder);
+            AddWolverineExtensions(builder.Services);
 
             return builder;
         }
@@ -30,6 +32,12 @@ namespace GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions
         {
             //services.AddExceptionHandler()
         }
+
+        private static void AddWolverineExtensions(IServiceCollection services)
+        {
+            services.AddWolverineExtension<PostsWolverineExtension>();
+        }
+
 
         private static void AddServices(IServiceCollection services)
         {

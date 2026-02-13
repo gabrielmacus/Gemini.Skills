@@ -1,12 +1,15 @@
 using GeminiReference.Backoffice.Modules.Posts.Domain.Events;
-using GeminiReference.Backoffice.Modules.Posts.Domain.Snapshots;
+using GeminiReference.Backoffice.Modules.Posts.Domain.Primitives;
 using GeminiReference.Backoffice.Modules.Posts.Domain.ValueObjects;
 using Neuraltech.SharedKernel.Domain.Base;
 using Neuraltech.SharedKernel.Domain.Contracts;
 
 namespace GeminiReference.Backoffice.Modules.Posts.Domain.Entities
 {
-    public class Post : AggregateRoot, ISnapshotable<Post, PostSnapshot>, IDeletable
+    public class Post : 
+        AggregateRoot, 
+        IPrimitiveSerializable<Post, PostPrimitives>, 
+        IDeletable
     {
         public PostTitle Title { get; private set; }
         public PostContents Contents { get; private set; }
@@ -52,10 +55,16 @@ namespace GeminiReference.Backoffice.Modules.Posts.Domain.Entities
 
         public void Delete()
         {
-            RecordDomainEvent(new PostDeletedEvent { PostId = Id.Value });
+            RecordDomainEvent(
+                new PostDeletedEvent { 
+                    PostId = Id.Value,
+                    Contents = Contents.Value,
+                    Title = Title.Value
+                }
+            );
         }
 
-        public PostSnapshot ToSnapshot() =>
+        public PostPrimitives ToPrimitives() =>
             new()
             {
                 Id = Id.Value,
@@ -63,7 +72,8 @@ namespace GeminiReference.Backoffice.Modules.Posts.Domain.Entities
                 Contents = Contents.Value,
             };
 
-        public static Post FromSnapshot(PostSnapshot snapshot) =>
-            new Post(snapshot.Id, snapshot.Title, snapshot.Contents);
+        public static Post FromPrimitives(PostPrimitives primitives) =>
+            new (primitives.Id, primitives.Title, primitives.Contents);
+
     }
 }

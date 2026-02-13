@@ -2,7 +2,7 @@ using GeminiReference.Backoffice.Modules.Posts.Domain.Events;
 using GeminiReference.Integration.Backoffice.Posts.Events;
 using Neuraltech.SharedKernel.Domain.Contracts;
 
-namespace GeminiReference.Backoffice.Modules.Posts.Application.UseCases.PublishPostDeletedIntegrationEvent
+namespace GeminiReference.Backoffice.Modules.Posts.Application.IntegrationEventPublishers.PublishPostDeletedIntegrationEvent
 {
     public class PublishPostDeletedIntegrationEventUseCase
     {

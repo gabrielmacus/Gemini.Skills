@@ -22,13 +22,12 @@ builder
     .AddKafka(builder.Configuration);
 #endregion
 
-#region Persistence
-builder.UsePostgresDb<BlogDbContext>("blog-db");
-#endregion
-
-
 #region Localization
 builder.UseLocalization(["es"], "es");
+#endregion
+
+#region Persistence
+builder.UsePostgresDb<BlogDbContext>("blog-db");
 #endregion
 
 #region Events

@@ -1,6 +1,6 @@
-namespace GeminiReference.Backoffice.Modules.Posts.Domain.Snapshots
+namespace GeminiReference.Backoffice.Modules.Posts.Domain.Primitives
 {
-    public record PostSnapshot
+    public record PostPrimitives
     {
         public required Guid Id { get; init; }
         public required string Title { get; init; }
