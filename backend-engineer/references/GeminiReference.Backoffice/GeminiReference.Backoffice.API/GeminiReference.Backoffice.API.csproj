@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
-
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
@@ -13,6 +12,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GeminiReference.Backoffice.Modules\GeminiReference.Backoffice.Modules.csproj" />
+    <ProjectReference Include="..\..\..\..\..\Neuraltech.SharedKernel\Neuraltech.SharedKernel.Infraestructure\Neuraltech.SharedKernel.Infraestructure.csproj" />
   </ItemGroup>
-
 </Project>

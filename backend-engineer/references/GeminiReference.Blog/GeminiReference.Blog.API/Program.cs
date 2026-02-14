@@ -1,3 +1,4 @@
+using GeminiReference.Blog.API.Resources.v1.Posts.Actions.PaginatePosts;
 using GeminiReference.Blog.Modules.Posts.Infraestructure.Extensions;
 using GeminiReference.Blog.Modules.SharedKernel.Infraestructure.Services;
 using Neuraltech.SharedKernel.Infraestructure.Extensions;
@@ -8,6 +9,10 @@ var builder = WebApplication.CreateBuilder(args);
 
 #region Modules
 builder.UsePostsModule();
+#endregion
+
+#region Validation
+builder.UseFluentValidation<PaginatePostsValidator>();
 #endregion
 
 #region Defaults

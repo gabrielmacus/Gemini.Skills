@@ -1,3 +1,4 @@
+using FluentValidation;
 using GeminiReference.Blog.API.Resources.v1.Posts.Shared.Routes;
 using GeminiReference.Blog.Modules.Posts.Application.UseCases.PaginatePosts;
 using GeminiReference.Blog.Modules.Posts.Domain.Criteria;
@@ -10,8 +11,11 @@ namespace GeminiReference.Blog.API.Resources.v1.Posts.Actions.PaginatePosts
     public class PaginatePostsHandler
         : PaginateHandler<Post, PostCriteria, PaginatePostsRequestDTO, PaginatePostsResponseDTO>
     {
-        public PaginatePostsHandler(PaginatePostsUseCase useCase)
-            : base(useCase) { }
+        public PaginatePostsHandler(
+            PaginatePostsUseCase useCase, 
+            IValidator<PaginatePostsRequestDTO> validator
+        )
+            : base(useCase, validator) { }
 
 
         protected override PostCriteria MapCriteria(PaginatePostsRequestDTO request, PostCriteria baseCriteria)
@@ -36,7 +40,9 @@ namespace GeminiReference.Blog.API.Resources.v1.Posts.Actions.PaginatePosts
         }
 
         [HttpGet(PostsRoutes.Paginate)]
-        public override ValueTask<IActionResult> Paginate([FromQuery] PaginatePostsRequestDTO request)
+        public override ValueTask<IActionResult> Paginate(
+            [FromQuery] PaginatePostsRequestDTO request
+        )
         {
             return base.Paginate(request);
         }

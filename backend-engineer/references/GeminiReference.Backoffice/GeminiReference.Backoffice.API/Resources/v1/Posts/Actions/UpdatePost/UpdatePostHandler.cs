@@ -1,3 +1,4 @@
+using FluentValidation;
 using GeminiReference.Backoffice.API.Resources.v1.Posts.Shared.Routes;
 using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.UpdatePost;
 using GeminiReference.Backoffice.Modules.Posts.Domain.Entities;
@@ -8,8 +9,8 @@ namespace GeminiReference.Backoffice.API.Resources.v1.Posts.Actions.UpdatePost
 {
     public class UpdatePostHandler : UpdateHandler<UpdatePostRequestDTO, UpdatePostDTO, Post>
     {
-        public UpdatePostHandler(UpdatePostUseCase useCase)
-            : base(useCase) { }
+        public UpdatePostHandler(UpdatePostUseCase useCase, IValidator<UpdatePostRequestDTO> validator)
+            : base(useCase, validator) { }
 
         [HttpPatch(PostsRoutes.Update)]
         public override ValueTask<IActionResult> Update(

@@ -1,3 +1,4 @@
+using FluentValidation;
 using GeminiReference.Backoffice.API.Resources.v1.Posts.Shared.Routes;
 using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.CreatePost;
 using GeminiReference.Backoffice.Modules.Posts.Domain.Entities;
@@ -8,8 +9,11 @@ namespace GeminiReference.Backoffice.API.Resources.v1.Posts.Actions.CreatePost
 {
     public class CreatePostHandler : CreateHandler<CreatePostRequestDTO, CreatePostDTO, Post>
     {
-        public CreatePostHandler(CreatePostUseCase useCase)
-            : base(useCase) { }
+        public CreatePostHandler(
+            CreatePostUseCase useCase,
+            IValidator<CreatePostRequestDTO> validator
+        )
+            : base(useCase, validator) { }
 
         [HttpPost(PostsRoutes.Create)]
         public override ValueTask<IActionResult> Create([FromBody] CreatePostRequestDTO request)

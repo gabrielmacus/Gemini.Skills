@@ -1,3 +1,4 @@
+using FluentValidation;
 using GeminiReference.Backoffice.API.Resources.v1.Posts.Shared.Routes;
 using GeminiReference.Backoffice.Modules.Posts.Application.UseCases.PaginatePosts;
 using GeminiReference.Backoffice.Modules.Posts.Domain.Criteria;
@@ -10,8 +11,8 @@ namespace GeminiReference.Backoffice.API.Resources.v1.Posts.Actions.PaginatePost
     public class PaginatePostsHandler
         : PaginateHandler<Post, PostCriteria, PaginatePostsRequestDTO, PaginatePostsResponseDTO>
     {
-        public PaginatePostsHandler(PaginatePostsUseCase useCase)
-            : base(useCase) { }
+        public PaginatePostsHandler(PaginatePostsUseCase useCase, IValidator<PaginatePostsRequestDTO> validator)
+            : base(useCase, validator) { }
 
         protected override PostCriteria MapCriteria(PaginatePostsRequestDTO request, PostCriteria baseCriteria)
         {

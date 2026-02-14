@@ -18,5 +18,10 @@ namespace GeminiReference.Blog.Modules.Posts.Domain.Criteria
             if (!keyword.HasValue) return this;
             return AddFilter("Contents", FilterOperators.CONTAINS, keyword.Value);
         }
+
+        protected override Pagination PaginationFactory(Optional<long> page, Optional<long> size)
+        {
+            return new PostPagination(size, page);
+        }
     }
 }
